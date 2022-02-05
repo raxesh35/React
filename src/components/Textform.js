@@ -2,16 +2,15 @@ import React, { useState } from 'react'
 
 export default function Textform(props) {
     const [text, setText] = useState('Write text here');
-    const [copy, setCopy] = useState('');
     const handleltuInput = () => {
         let convertToUpCase = text.toUpperCase();
         setText(convertToUpCase)
-        setCopy('')
+        props.showAlert('success', 'Text converted to uppercase')
     }
     const handleutlInput = () => {
         let convertToUpCase = text.toLowerCase();
         setText(convertToUpCase)
-        setCopy('')
+        props.showAlert('success', 'Text converted to lowercase')
     }
     const handleCopyToClipboard = () => {
         var sampleTextarea = document.createElement("textarea");
@@ -20,21 +19,20 @@ export default function Textform(props) {
         sampleTextarea.select(); //select textarea contenrs
         document.execCommand("copy");
         document.body.removeChild(sampleTextarea);
-        setCopy('Copied !!')
+        props.showAlert('success', 'Copy to clipboard successfully')
     }
     const handleClearnput = () => {
         setText('')
-        setCopy('')
+        props.showAlert('success', 'Cleared content')
     }
     const handleChangeInput = (event) => {
         setText(event.target.value);
-        setCopy('')
+
     }
     return (
         <>
             <div className='container' style={{color: props.mode === 'dark'?'white':'#042743'}}>
                 <h2 >{props.heading}</h2>
-                <b className='text-success'>{copy}</b>
                 <div className="mb-3">
                     <label htmlFor="mybox" className="form-label"></label>
                     <textarea className="form-control" id="mybox" onChange={handleChangeInput} value={text} rows="8" style={{backgroundColor: props.mode === 'light'?'white':'grey', color: props.mode === 'dark'?'white':'#042743'}}></textarea>
