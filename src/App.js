@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-import About from './components/About';
+import News from './components/News';
 
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
         <div className="container my-3">      
           <Routes>
               <Route exact path="/" element={<Textform exact mode={mode} heading="Enter the text for analyze below" showAlert={showAlert}/>}></Route>
-              <Route exact path="/about" element={<About/>}></Route>
+              <Route exact path="/news" element={<News/>}></Route>
           </Routes>      
         </div>
       </Router>
