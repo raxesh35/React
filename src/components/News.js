@@ -111,7 +111,7 @@ class News extends Component {
   render() {
     return (
       <>
-        <h2 className='my-4'>Top headlines of {this.props.category} news</h2>
+        <h2 className='' style={{marginTop: "70px"}} >Top headlines of {this.props.category} news</h2>
         {/* {this.state.loading && <Loader />} */}
         <InfiniteScroll
           dataLength={this.state.articles.length}
