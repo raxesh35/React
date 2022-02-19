@@ -10,7 +10,7 @@ import News from './components/News';
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
-  
+  const appKey = process.env.REACT_APP_NEWS_API_KEY;
   const toggleMode = () =>{
     if (mode === "dark") {
       setMode("light");
@@ -42,13 +42,13 @@ function App() {
         <div className="container my-3">      
           <Routes>
               <Route exact path="/" element={<Textform exact mode={mode} heading="Enter the text for analyze below" showAlert={showAlert}/>}></Route>
-              <Route exact path="/news" element={<News key="general" pageSize={12} category="general"/>}></Route>
-              <Route exact path="/sports" element={<News key="sports" pageSize={12} category="sports"/>}></Route>
-              <Route exact path="/business" element={<News key="business" pageSize={12} category="business"/>}></Route>
-              <Route exact path="/entertainment" element={<News key="entertainment" pageSize={12} category="entertainment"/>}></Route>
-              <Route exact path="/health" element={<News key="health" pageSize={12} category="health"/>}></Route>
-              <Route exact path="/technology" element={<News key="technology" pageSize={12} category="technology"/>}></Route>
-              <Route exact path="/science" element={<News key="science" pageSize={12} category="science"/>}></Route>
+              <Route exact path="/news" element={<News key="general" pageSize={12} apiKey={appKey} category="general"/>}></Route>
+              <Route exact path="/sports" element={<News key="sports" pageSize={12} apiKey={appKey} category="sports"/>}></Route>
+              <Route exact path="/business" element={<News key="business" pageSize={12} apiKey={appKey} category="business"/>}></Route>
+              <Route exact path="/entertainment" element={<News key="entertainment" pageSize={12} apiKey={appKey} category="entertainment"/>}></Route>
+              <Route exact path="/health" element={<News key="health" pageSize={12} apiKey={appKey} category="health"/>}></Route>
+              <Route exact path="/technology" element={<News key="technology" pageSize={12} apiKey={appKey} category="technology"/>}></Route>
+              <Route exact path="/science" element={<News key="science" pageSize={12} apiKey={appKey} category="science"/>}></Route>
           </Routes>      
         </div>
       </Router>
