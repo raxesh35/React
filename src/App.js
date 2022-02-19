@@ -18,7 +18,7 @@ function App() {
       showAlert('success', 'Light mode has been changed')
     } else {
       setMode("dark");
-      document.body.style.backgroundColor = '#042743';
+      document.body.style.backgroundColor = 'peru';
       showAlert('success', 'Dark mode has been changed')
     }
   }
